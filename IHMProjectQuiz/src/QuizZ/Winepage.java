@@ -31,7 +31,7 @@ public class Winepage extends JFrame {
 	            @Override
 	            protected void paintComponent(Graphics g) {
 	                super.paintComponent(g);
-	                ImageIcon icon = new ImageIcon("/root/eclipse-workspace/IhmProject-main/assets/youwin.png");
+	                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/youWin.png");
 	                Image img = icon.getImage();
 	                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	            }
