@@ -118,7 +118,10 @@ public class ChoosingPage extends JFrame {
      //backround yellow
      //border blue
      this.add(csquiz);//set visibilite de button
-     csquiz.addActionListener(e -> JOptionPane.showMessageDialog(this, "Start Quiz!"));
+     csquiz.addActionListener(e -> {
+    	 QuestionPage questionPage = new QuestionPage();
+         questionPage.setVisible(true);
+     });
     //action de button 
 
         // Add main panel to frame

@@ -39,7 +39,7 @@ public class AboutPage extends JFrame {
         );
         p.setFont(new Font("Tahoma", Font.PLAIN, 16));
         p.setForeground(Color.BLACK); // Paragraph text color
-        p.setBounds(340, 140, 300, 80); // Position for the paragraph (centered)
+        p.setBounds(340, 130, 300, 80); // Position for the paragraph (centered)
 
         // Add labels to the main panel
         mainPanel.add(H1);

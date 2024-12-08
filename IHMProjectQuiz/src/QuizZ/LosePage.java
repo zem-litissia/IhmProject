@@ -13,81 +13,68 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class LosePage extends JFrame {
-	 public LosePage() {
-	        super("Quiz Application");
-	        initUI();
-	    }
+    public LosePage(int correctAnswers) {
+        super("Quiz Application");
+        initUI(correctAnswers);
+    }
 
-	    private void initUI() {
-	        // Set frame properties
-	        setSize(600, 400);
-	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        setLocationRelativeTo(null);
-	        setLayout(new BorderLayout());
-	        setResizable(false);
+    private void initUI(int correctAnswers) {
+        // Set frame properties
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
 
-	        // Main panel with a background color
-	        JPanel mainPanel = new JPanel() {
-	            @Override
-	            protected void paintComponent(Graphics g) {
-	                super.paintComponent(g);
-	                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/youlose3.png");
-	                Image img = icon.getImage();
-	                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-	            }
-	        };
-	        mainPanel.setLayout(null);
+        // Main panel with a background color
+        JPanel mainPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/youlose3.png");
+                Image img = icon.getImage();
+                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        mainPanel.setLayout(null);
 
+        // "Home" button
+        JButton startButton = new JButton("Home");
+        startButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+        startButton.setBounds(70, 300, 80, 30);
+        Color customColor = Color.decode("#ffdc70");
+        startButton.setBackground(customColor);
+        startButton.setForeground(Color.decode("#0b4272"));
 
-	        // Start button
+        // "Try Again" button
+        JButton tryAgainButton = new JButton("Try Again");
+        tryAgainButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+        tryAgainButton.setBounds(440, 300, 110, 30);
+        tryAgainButton.setBackground(customColor);
+        tryAgainButton.setForeground(Color.decode("#0b4272"));
 
-	        JButton startButton = new JButton("home");//creat button
-	        startButton.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-	        startButton.setBounds(70,300,80,30);//x=lignposition y=vertecalposition ,wight, height
-	        //try again button 
-	        JButton TryAgainButton = new JButton("ty again");//creat button
-	        TryAgainButton.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-	        TryAgainButton.setBounds(440,300,100,30);//x=lignposition y=vertecalposition ,wight, height
-	        //costimize the buttons
-	        Color customColor = Color.decode("#ffdc70");
-	        startButton.setBackground(customColor);
-	        TryAgainButton.setBackground(customColor);
-	        Color textColor = Color.decode("#0b4272");//set the text in the button to 
-	        startButton.setForeground(textColor);
-	        TryAgainButton.setForeground(textColor);
-	        //backround yellow
-	        //border blue
-	        
-	        //creat scor label
-	        JLabel displayscore=new JLabel("0");
-	        displayscore.setFont(new Font("Arial", Font.BOLD, 28));
-	        displayscore.setForeground(Color.decode("#0b4272")); // Title text color
-	        displayscore.setBounds(340, 290, 200, 40); // Position for the title
-	        JLabel score = new JLabel("score :");
-	        score.setFont(new Font("Arial", Font.BOLD, 28));
-	        score.setForeground(Color.decode("#0b4272")); // Title text color
-	        score.setBounds(220, 290, 200, 40); 
-	        mainPanel.add(score);
-	        
-	        mainPanel.add(displayscore);
-	        
-	        
-	        this.add(startButton);//set visibilite de button
-	        this.add(TryAgainButton);
-	        startButton.addActionListener(e -> {
-	           
-	            new Homepage().setVisible(true);
-	            this.dispose(); // Close Homepage
-	        });
-	        TryAgainButton.addActionListener(e -> {
-		           
-	            new ChoosingPage().setVisible(true);
-	            this.dispose(); // Close Homepage
-	        });
+        // Score label
+        JLabel scoreLabel = new JLabel("Score: " + correctAnswers);
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 28));
+        scoreLabel.setForeground(Color.decode("#0b4272"));
+        scoreLabel.setBounds(220, 290, 200, 40);
 
-	        // Add main panel to frame
-	        add(mainPanel);
-	    }
+        // Add components to the main panel
+        mainPanel.add(scoreLabel);
+        mainPanel.add(startButton);
+        mainPanel.add(tryAgainButton);
 
-	    
+        // Button actions
+        startButton.addActionListener(e -> {
+            new Homepage().setVisible(true);
+            this.dispose(); // Close LosePage
+        });
+
+        tryAgainButton.addActionListener(e -> {
+            new ChoosingPage().setVisible(true);
+            this.dispose(); // Close LosePage
+        });
+
+        // Add the main panel to the frame
+        add(mainPanel);
+    }
 }
