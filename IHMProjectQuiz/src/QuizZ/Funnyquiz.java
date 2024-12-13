@@ -5,50 +5,50 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class QuestionPage extends JFrame {
+public class Funnyquiz extends JFrame {
+
     private int current = 0; // Track the current question
     private int correctAnswers = 0; // Track correct answers
     private int timeLeft = 10; // Time for each question (in seconds)
     private Timer timer; // Timer object
-    private JLabel timerLabel; // Label for the timer
+
     private JLabel label; // Label for questions
+    private JLabel timerLabel; // Label for the timer
     private JRadioButton[] radioButton = new JRadioButton[4]; // Radio buttons for options
     private ButtonGroup bg = new ButtonGroup(); // ButtonGroup for grouping options
 
-    private String[] questions = {
-    	    "1. What is an OS's main purpose?",
-    	    "2. What does 'HTML' stand for?",
-    	    "3. Which structure uses LIFO?",
-    	    "4. Time complexity for searching in BST?",
-    	    "5. What is inheritance in OOP?",
-    	    "6. Which is NOT a programming language?",
-    	    "7. Algorithm for shortest path in a graph?",
-    	    "8. What does SQL mean?",
-    	    "9. Function of DNS?",
-    	    "10. Example of a NoSQL database?"
-    	};
+    private String[] funnyQuestions = {
+        "1. What chases you but can't be seen?",
+        "2. What has teeth but can't bite?",
+        "3. What breaks but never falls?",
+        "4. What gets bigger the more you take?",
+        "5. What hears without ears and speaks without a tongue?",
+        "6. What vanishes when you turn on the light?",
+        "7. What is in your hand but belongs to others?",
+        "8. What comes once in a minute, twice in a moment?",
+        "9. What has keys but can't open locks?",
+        "10. What has a head, tail, but no body?"
+    };
 
+    private String[][] funnyOptions = {
+        {"a) Shadow", "b) Air", "c) Light", "d) Camera"},
+        {"a) Saw", "b) Clamps", "c) Comb", "d) Scissors"},
+        {"a) Promise", "b) Glass", "c) Pen", "d) Stone"},
+        {"a) Hole", "b) Book", "c) Clouds", "d) Sea"},
+        {"a) Phone", "b) Echo", "c) Radio", "d) TV"},
+        {"a) Stars", "b) Moon", "c) Clouds", "d) Darkness"},
+        {"a) Watch", "b) Pen", "c) Key", "d) Phone"},
+        {"a) The letter 'M'", "b) A blink", "c) A second", "d) A breath"},
+        {"a) A piano", "b) A map", "c) A computer", "d) A phone"},
+        {"a) A snake", "b) A coin", "c) A fish", "d) A pencil"}
+    };
 
-    private String[][] options = {
-    	    {"a) Manage hardware/software", "b) Run apps and games", "c) Perform calculations", "d) Design websites"},
-    	    {"a) Hyper Text Markup Language", "b) High-level Machine Language", "c) Hyperlink Manipulation Language", "d) Home Tool Markup Language"},
-    	    {"a) Queue", "b) Stack", "c) Linked list", "d) Array"},
-    	    {"a) O(1)", "b) O(log n)", "c) O(n)", "d) O(n log n)"},
-    	    {"a) Create objects from others", "b) Restrict access to members", "c) Hide complexity of operations", "d) Inherit properties and methods"},
-    	    {"a) Python", "b) JavaScript", "c) Java", "d) InternetScript"},
-    	    {"a) QuickSort", "b) MergeSort", "c) Dijkstra's Algorithm", "d) Binary Search"},
-    	    {"a) Structured Query Language", "b) Simple Query Language", "c) Sequential Query Logic", "d) Simple Query Logic"},
-    	    {"a) Assign IP addresses", "b) Convert domain names to IPs", "c) Send data packets", "d) Encrypt web traffic"},
-    	    {"a) MySQL", "b) MongoDB", "c) Oracle Database", "d) PostgreSQL"}
-    	};
+    private String[] funnyCorrectAnswers = {
+        "a", "c", "a", "a", "b", "d", "c", "a", "a", "b"
+    };
 
-    	private String[] correctAnswersArray = {
-    	    "a", "a", "b", "b", "d", "d", "c", "a", "b", "b"
-    	};
-
-
-    public QuestionPage() {
-        super("Question Page");
+    public Funnyquiz() {
+        super("Funnyquiz Page");
         initUI();
     }
 
@@ -74,20 +74,21 @@ public class QuestionPage extends JFrame {
         label.setFont(new Font("Arial", Font.BOLD, 18));
         label.setBounds(30, 60, 540, 40);
         mainPanel.add(label);
-        
+
         timerLabel = new JLabel();
-        timerLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        timerLabel.setFont(new Font("Arial", Font.BOLD, 16));
         timerLabel.setBounds(480, 20, 100, 30);
         timerLabel.setForeground(Color.GREEN);
 
         mainPanel.add(timerLabel);
+
         int yPosition = 120;
         for (int i = 0; i < 4; i++) {
             radioButton[i] = new JRadioButton();
             radioButton[i].setFont(new Font("Arial", Font.PLAIN, 16));
             radioButton[i].setBounds(30, yPosition, 540, 30);
-            radioButton[i].setOpaque(false);  // Make the background transparent
-            radioButton[i].setBackground(new Color(0, 0, 0, 0));  // Optional: Set transparent background
+            radioButton[i].setOpaque(false);
+            radioButton[i].setBackground(new Color(0, 0, 0, 0));
             bg.add(radioButton[i]);
             mainPanel.add(radioButton[i]);
             yPosition += 40;
@@ -97,8 +98,7 @@ public class QuestionPage extends JFrame {
         JButton nextButton = new JButton("Next");
         nextButton.setFont(new Font("Tahoma", Font.BOLD, 16));
         nextButton.setBounds(350, 300, 80, 30);
-        Color customColor = Color.decode("#ffdc70");
-        nextButton.setBackground(customColor);
+        nextButton.setBackground(Color.decode("#ffdc70"));
         nextButton.setForeground(Color.decode("#0b4272"));
         nextButton.addActionListener(new ActionListener() {
             @Override
@@ -114,6 +114,7 @@ public class QuestionPage extends JFrame {
         add(mainPanel);
         showNextQuestion(0);
     }
+
     private void startTimer() {
         timeLeft = 10; // Reset the time for each question
         timerLabel.setText("Time: " + timeLeft + "s");
@@ -138,40 +139,38 @@ public class QuestionPage extends JFrame {
         });
         timer.start();
     }
+
     private void checkAnswer() {
         String selectedAnswer = "";
         for (int i = 0; i < 4; i++) {
             if (radioButton[i].isSelected()) {
-                selectedAnswer = radioButton[i].getText().substring(0, 1); // get the first letter 'a', 'b', 'c', or 'd'
+                selectedAnswer = radioButton[i].getText().substring(0, 1); // Get the first letter 'a', 'b', 'c', or 'd'
             }
         }
-        if (selectedAnswer.equals(correctAnswersArray[current])) {
+        if (selectedAnswer.equals(funnyCorrectAnswers[current])) {
             correctAnswers++;
         }
     }
 
     private void showNextQuestion(int direction) {
         current += direction;
-
+       
         if (current < 0) {
             current = 0;
             return;
-        } else if (current >= questions.length) {
-            current = questions.length - 1;
+        } else if (current >= funnyQuestions.length) {
+            current = funnyQuestions.length - 1;
             displayResult();
             return;
         }
 
-        label.setText(questions[current]);
+        label.setText(funnyQuestions[current]);
         for (int i = 0; i < 4; i++) {
-            radioButton[i].setText(options[current][i]);
+            radioButton[i].setText(funnyOptions[current][i]);
         }
         bg.clearSelection();
-        startTimer();
-    }
 
-    public int getCorrectAnswersCount() {
-        return correctAnswers;
+        startTimer(); // Start the timer for the new question
     }
 
     private void displayResult() {
@@ -181,5 +180,9 @@ public class QuestionPage extends JFrame {
             new LosePage(getCorrectAnswersCount()).setVisible(true);
         }
         dispose();
+    }
+
+    public int getCorrectAnswersCount() {
+        return correctAnswers;
     }
 }

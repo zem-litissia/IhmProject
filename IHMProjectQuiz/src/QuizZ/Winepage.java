@@ -40,26 +40,21 @@ public class Winepage extends JFrame {
         // "Home" button
         JButton startButton = new JButton("Home");
         startButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-        startButton.setBounds(70, 300, 80, 30);
-
-        // "Try Again" button
-        JButton tryAgainButton = new JButton("Try Again");
-        tryAgainButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-        tryAgainButton.setBounds(440, 300, 110, 30);
+        startButton.setBounds(250, 327, 90, 28);
 
         // Customize button colors
         Color customColor = Color.decode("#ffdc70");
         startButton.setBackground(customColor);
-        tryAgainButton.setBackground(customColor);
+        
         Color textColor = Color.decode("#0b4272");
         startButton.setForeground(textColor);
-        tryAgainButton.setForeground(textColor);
+       
 
         // Display the score
         JLabel scoreLabel = new JLabel("Score: " + correctAnswers); // Show the correctAnswers
         scoreLabel.setFont(new Font("Arial", Font.BOLD, 28));
         scoreLabel.setForeground(Color.decode("#0b4272"));
-        scoreLabel.setBounds(220, 290, 200, 40);
+        scoreLabel.setBounds(240, 278, 200, 40);
 
         mainPanel.add(scoreLabel);
 
@@ -69,14 +64,11 @@ public class Winepage extends JFrame {
             this.dispose(); // Close the current page
         });
 
-        tryAgainButton.addActionListener(e -> {
-            new ChoosingPage().setVisible(true);
-            this.dispose(); // Close the current page
-        });
+       
 
         // Add buttons and panel
         mainPanel.add(startButton);
-        mainPanel.add(tryAgainButton);
+     
         add(mainPanel);
     }
 }

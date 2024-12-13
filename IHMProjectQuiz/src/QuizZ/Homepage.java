@@ -22,7 +22,7 @@ public class Homepage extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/ihmproject6.png");
+                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/HomePage.png");
                 Image img = icon.getImage();
                 g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
             }

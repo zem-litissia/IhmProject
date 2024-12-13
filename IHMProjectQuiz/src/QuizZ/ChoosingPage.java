@@ -31,7 +31,7 @@ public class ChoosingPage extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/ChoosingPage2.png");
+                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/ChoosingPage.png");
                 Image img = icon.getImage();
                 g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
             }
@@ -41,31 +41,31 @@ public class ChoosingPage extends JFrame {
 
         // Start button
 
-        JButton home = new JButton("home");//creat button
-        home.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-        home.setBounds(50,240,100,30);//x=lignposition y=vertecalposition ,wight, height
-        
-        Color customColor = Color.decode("#ffdc70");//set the button bckround to #ffdc70
-        home.setBackground(customColor);
-        
-        Color textColor = Color.decode("#0b4272");//set the text in the button to #0b4272
-        home.setForeground(textColor);
-        
-        //backround yellow
-        //border blue
-        this.add(home);//set visibilite de button
-        home.addActionListener(e -> {
-            
-            new Homepage().setVisible(true);
-            this.dispose(); // Close Homepage
-        });
-       
+//        JButton home = new JButton("home");//creat button
+//        home.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
+//        home.setBounds(250,160,150,30);//x=lignposition y=vertecalposition ,wight, height
+//        
+//        Color customColor = Color.decode("#ffdc70");//set the button bckround to #ffdc70
+//        home.setBackground(customColor);
+//        
+//        Color textColor = Color.decode("#0b4272");//set the text in the button to #0b4272
+//        home.setForeground(textColor);
+//        
+//        //backround yellow
+//        //border blue
+//        this.add(home);//set visibilite de button
+//        home.addActionListener(e -> {
+//            
+//            new Homepage().setVisible(true);
+//            this.dispose(); // Close Homepage
+//        });
+//       
        
        
 
        JButton about = new JButton("about");//creat button
        about.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-       about.setBounds(450,240,100,30);//x=lignposition y=vertecalposition ,wight, height
+       about.setBounds(250,280,150,30);//x=lignposition y=vertecalposition ,wight, height
        
        Color customsColor = Color.decode("#ffdc70");//set the button bckround to #ffdc70
        about.setBackground(customsColor);
@@ -88,7 +88,7 @@ public class ChoosingPage extends JFrame {
 
       JButton funnyquiz = new JButton("funnyquiz");//creat button
       funnyquiz.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-      funnyquiz.setBounds(220,200,150,30);//x=lignposition y=vertecalposition ,wight, height
+      funnyquiz.setBounds(250,176,150,30);//x=lignposition y=vertecalposition ,wight, height
       
       Color customssColor = Color.decode("#ffdc70");//set the button bckround to #ffdc70
       funnyquiz.setBackground(customssColor);
@@ -99,7 +99,11 @@ public class ChoosingPage extends JFrame {
       //backround yellow
       //border blue
       this.add(funnyquiz);//set visibilite de button
-      funnyquiz.addActionListener(e -> JOptionPane.showMessageDialog(this, "Start Quiz!"));
+      funnyquiz.addActionListener(e -> {
+    	  Funnyquiz funnyQuiz =new Funnyquiz();
+    	  funnyQuiz.setVisible(true);
+    	  this.dispose();
+      });
      //action de button 
      
      
@@ -107,7 +111,7 @@ public class ChoosingPage extends JFrame {
 
      JButton csquiz = new JButton("csquiz");//creat button
      csquiz.setFont(new  Font("Tahoma", Font.BOLD , 16)); // Set font to Arial, bold, size 16
-     csquiz.setBounds(220,280,150,30);//x=lignposition y=vertecalposition ,wight, height
+     csquiz.setBounds(250,230,150,30);//x=lignposition y=vertecalposition ,wight, height
      
      Color customsssColor = Color.decode("#ffdc70");//set the button bckround to #ffdc70
      csquiz.setBackground(customsssColor);
@@ -121,6 +125,7 @@ public class ChoosingPage extends JFrame {
      csquiz.addActionListener(e -> {
     	 QuestionPage questionPage = new QuestionPage();
          questionPage.setVisible(true);
+         this.dispose();
      });
     //action de button 
 

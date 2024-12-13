@@ -30,7 +30,7 @@ public class LosePage extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/youlose3.png");
+                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/YouLose.png");
                 Image img = icon.getImage();
                 g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
             }
@@ -40,7 +40,7 @@ public class LosePage extends JFrame {
         // "Home" button
         JButton startButton = new JButton("Home");
         startButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-        startButton.setBounds(70, 300, 80, 30);
+        startButton.setBounds(40, 300, 100, 30);
         Color customColor = Color.decode("#ffdc70");
         startButton.setBackground(customColor);
         startButton.setForeground(Color.decode("#0b4272"));
@@ -56,7 +56,7 @@ public class LosePage extends JFrame {
         JLabel scoreLabel = new JLabel("Score: " + correctAnswers);
         scoreLabel.setFont(new Font("Arial", Font.BOLD, 28));
         scoreLabel.setForeground(Color.decode("#0b4272"));
-        scoreLabel.setBounds(220, 290, 200, 40);
+        scoreLabel.setBounds(240, 290, 200, 40);
 
         // Add components to the main panel
         mainPanel.add(scoreLabel);

@@ -21,7 +21,7 @@ public class AboutPage extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/About.png");
+                ImageIcon icon = new ImageIcon("D:/ihmproject/assets/img/AboutPage.png");
                 Image img = icon.getImage();
                 g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
             }
@@ -48,7 +48,7 @@ public class AboutPage extends JFrame {
         // Create the "Home" button
         JButton home = new JButton("Home");
         home.setFont(new Font("Tahoma", Font.BOLD, 16));
-        home.setBounds(70, 280, 100, 30); // Centered at the bottom
+        home.setBounds(363, 260, 100, 30); // Centered at the bottom
         home.setBackground(Color.decode("#ffdc70")); // Button background color
         home.setForeground(Color.decode("#0b4272")); // Button text color
 

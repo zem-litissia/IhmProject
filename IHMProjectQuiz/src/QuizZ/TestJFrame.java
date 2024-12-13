@@ -10,13 +10,13 @@ public class TestJFrame {
             frame.setVisible(true);
 //        	AboutPage about=new AboutPage();
 //        	about.setVisible(true);
-//            LosePage lose = new LosePage();
+//            LosePage lose = new LosePage(0);
 //            lose.setVisible(true);
 //            QuestionPage question=new QuestionPage();
 //            question.setVisible(true);
-//            Winepage lose = new Winepage();
-//            lose.setVisible(true);
-            
+//            Winepage win = new Winepage(0);
+//            win.setVisible(true);
+//            
 //            QuestionPage questionPage = new QuestionPage();
 //            questionPage.setVisible(true);
         });
